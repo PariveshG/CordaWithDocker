@@ -1,0 +1,42 @@
+#opyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+version: '2'
+
+services:
+
+  PartyA:
+    image: cordapp_example
+    environment:
+      - JAVA_OPTIONS=-Xmx256m
+    stdin_open: true
+    tty: true
+    ports:
+      - "10004:10004"
+      - "10005:10005"
+      - "10006:10006"
+    command: sh -c 'cd /home/ubuntu/parivesh/samples/cordapp-example/workflows-kotlin/build/nodes/PartyA && java -jar corda.jar'
+    container_name: partyA_container
+
+  PartyB:
+    image: cordapp_example
+    environment:
+      - JAVA_OPTIONS=-Xmx256m
+    ports:
+      - "10008:10008"
+      - "10009:10009"
+      - "10010:10010"
+    command: sh -c 'cd /home/ubuntu/parivesh/samples/cordapp-example/workflows-kotlin/build/nodes/PartyB && java -jar corda.jar'
+    container_name: partyB_container
+
+  PartyC:
+    image: cordapp_example
+    environment:
+      - JAVA_OPTIONS=-Xmx256m
+    ports:
+      - "10012:10012"
+      - "10013:10013"
+      - "10014:10014"
+    command: sh -c 'cd /home/ubuntu/parivesh/samples/cordapp-example/workflows-kotlin/build/nodes/PartyC && java -jar corda.jar'
+    container_name: partyC_container
