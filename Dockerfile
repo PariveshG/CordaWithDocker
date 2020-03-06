@@ -4,4 +4,4 @@ RUN mkdir -p /home/ubuntu/parivesh/samples/cordapp-example;
 COPY ./ /home/ubuntu/parivesh/samples/cordapp-example
 RUN java -version;
 
-RUN cd /home/ubuntu/parivesh/samples/cordapp-example && ./gradlew clean && ./gradlew build && ./gradlew deployNodes;
+RUN cd /home/ubuntu/parivesh/samples/cordapp-example && ./gradlew clean && ./gradlew build && ./gradlew prepareDockerNodes;
